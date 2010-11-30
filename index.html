@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>HTML 5 Euchre</title>
+        <script type="text/javascript" src="jquery-1.4.4.min.js" charset="utf-8"></script>
+        <script type="text/javascript" src="cards.js" charset="utf-8"></script>
+        <script type="text/javascript" charset="utf-8">
+            $(function() {
+                $("#freshdeck").append(euchreDeck.deck()[0].value() + " of " + euchreDeck.deck()[0].suit());
+                shuffled = euchreDeck.shuffle();
+                $("#shuffled").append(shuffled[0].value() + " of " + shuffled[0].suit());
+            });
+            
+        </script>
+    </head>
+    <body>
+        <h1>HTML 5 Euchre -- so fucking alpha they don't make numbers imaginary enough</h1>
+        <div id="container">
+            <div id="messages">
+                <div id="freshdeck">
+                    New Deck:<br/>
+                </div>
+                <div id="shuffled">
+                    Shuffled:<br/>
+                </div>
+            </div>
+        </div>
+    
+    </body>
+</html>
