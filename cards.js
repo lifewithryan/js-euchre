@@ -30,26 +30,13 @@ function Deck(options) {
 
     var deck = [];
     
-    for(i = 0;  i < suits.length; i++) {
-        for(j = 0; j < cards.length; j++) {
-            c = new Card({suit:suits[i], value:cards[j]});
+    for(var suit in suits) {
+        for(var card in cards) {
+            c = new Card({suit:suits[suit], value:cards[card]});
             deck.push(c);
-            console.log("added " + c.value()  + " of " + c.suit() + " to deck");
+            console.log("added " + c.value() + " of " + c.suit());
         }
     }
-    
-    /* the for->in loop was returning the array index
-       instead of the value here, WTF?
-    for(var suit in suits) {
-        alert(suit);
-        console.log("Adding " + suit);
-        for(var card in cards) {
-            console.log("Adding" + card);
-            c = new Card({suit:suit, value:card});
-            deck.push(c);            
-            console.log("added: " + c.value() + " of " + c.suit());
-        }
-    }*/
     
     this.shuffle = function() { 
         console.log('shuffling');

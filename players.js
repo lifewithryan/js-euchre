@@ -2,12 +2,34 @@ function Player(options) {
     var myTeam = options.team;
     var myName = options.name;
     var myCards = options.cards; // should be an array of cards
+    var hasLead = options.lead;
+    var isDealer = options.dealer;
     
     this.name = function(newName) {
         if(newName) {
             myName = newName;
         } else {
             return myName;
+        }
+    };
+    
+    this.hasLead = function(has_lead) {
+        if(has_lead == true) {
+            hasLead = true;
+        } else if(has_lead == false){
+            hasLead = false;
+        } else {
+            return hasLead;
+        }
+    };
+    
+    this.isDealer = function(is_dealer) {
+        if(is_dealer == true) {
+            isDealer = true;
+        } else if(is_dealer == false) {
+            isDealer = false;
+        } else {
+            return isDealer;
         }
     };
     
@@ -27,7 +49,7 @@ function Player(options) {
 }
 
 function Team(options) {
-    var myName = options.name; // NorthSouth or EastWest
+    var myName = options.name; // NorthSouth | EastWest
     var wonTricks;
     var calledTrump; // true or false
     
@@ -40,10 +62,12 @@ function Team(options) {
     };
     
     this.calledTrump = function(caller) {
-        if(caller) {
+        if(caller == true) {
             calledTrump = true;
-        } else {
+        } else if(caller == false) {
             calledTrump = false;
+        } else {
+            return calledTrump;
         }
     };
 }
