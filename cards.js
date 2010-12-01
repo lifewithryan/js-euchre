@@ -60,7 +60,7 @@ function Deck(options) {
         return deck;
     };
 }
-
+    
 
 var euchreDeck = new Deck({
     suits : ["Hearts", "Diamonds", "Spades", "Clubs"],
