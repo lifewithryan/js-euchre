@@ -4,11 +4,29 @@
         <title>HTML 5 Euchre</title>
         <script type="text/javascript" src="jquery-1.4.4.min.js" charset="utf-8"></script>
         <script type="text/javascript" src="cards.js" charset="utf-8"></script>
+        <script type="text/javascript" src="players.js" charset="utf-8"></script>
         <script type="text/javascript" charset="utf-8">
             $(function() {
-                $("#freshdeck").append(euchreDeck.deck()[0].value() + " of " + euchreDeck.deck()[0].suit());
+                //$("#freshdeck").append(euchreDeck.deck()[0].value() + " of " + euchreDeck.deck()[0].suit());
                 shuffled = euchreDeck.shuffle();
-                $("#shuffled").append(shuffled[0].value() + " of " + shuffled[0].suit());
+                //$("#shuffled").append(shuffled[0].value() + " of " + shuffled[0].suit());
+                euchreDeck.deal();
+                north = euchreDeck.northHand();
+                for(card in north) {
+                    $("#player_north").append(" -- " + north[card].value() + " of " + north[card].suit() + "<br/>");
+                }
+                east = euchreDeck.eastHand();
+                for(card in east) {
+                    $("#player_east").append(" -- " + east[card].value() + " of " + east[card].suit() + "<br/>");
+                }
+                south = euchreDeck.southHand();
+                for(card in south) {
+                    $("#player_south").append(" -- " + south[card].value() + " of " + south[card].suit() + "<br/>");
+                }
+                west = euchreDeck.westHand();
+                for(card in west) {
+                    $("#player_west").append(" -- " + west[card].value() + " of " + west[card].suit() + "<br/>");
+                }
             });
             
         </script>
@@ -17,11 +35,23 @@
         <h1>HTML 5 Euchre -- so fucking alpha they don't make numbers imaginary enough</h1>
         <div id="container">
             <div id="messages">
-                <div id="freshdeck">
+                <!--<div id="freshdeck">
                     New Deck:<br/>
                 </div>
                 <div id="shuffled">
                     Shuffled:<br/>
+                </div>-->
+                <div id="player_north">
+                    North:<br/>
+                </div>
+                <div id="player_east">
+                    East:<br/>
+                </div>
+                <div id="player_south">
+                    South:<br/>
+                </div>
+                <div id="player_west">
+                    West:<br/>
                 </div>
             </div>
         </div>
