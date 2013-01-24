@@ -5,34 +5,42 @@
         <script type="text/javascript" src="jquery-1.4.4.min.js" charset="utf-8"></script>
         <script type="text/javascript" src="cards.js" charset="utf-8"></script>
         <script type="text/javascript" src="players.js" charset="utf-8"></script>
-        <script type="text/javascript" charset="utf-8">
+
+        <script type="text/javascript" src="draw.js" charset="utf-8"></script>
+            <script type="text/javascript" charset="utf-8">
+
             $(function() {
                 //$("#freshdeck").append(euchreDeck.deck()[0].value() + " of " + euchreDeck.deck()[0].suit());
                 shuffled = euchreDeck.shuffle();
                 //$("#shuffled").append(shuffled[0].value() + " of " + shuffled[0].suit());
                 euchreDeck.deal();
+
                 north = euchreDeck.northHand();
                 for(card in north) {
                     $("#player_north").append(" -- " + north[card].value() + " of " + north[card].suit() + "<br/>");
+                    drawCard("north", north[card].suit(), card);
                 }
                 east = euchreDeck.eastHand();
                 for(card in east) {
                     $("#player_east").append(" -- " + east[card].value() + " of " + east[card].suit() + "<br/>");
+                    drawCard("east", east[card].suit(), card);
                 }
                 south = euchreDeck.southHand();
                 for(card in south) {
                     $("#player_south").append(" -- " + south[card].value() + " of " + south[card].suit() + "<br/>");
+                    drawCard("south", south[card].suit(), card);
                 }
                 west = euchreDeck.westHand();
                 for(card in west) {
                     $("#player_west").append(" -- " + west[card].value() + " of " + west[card].suit() + "<br/>");
+                    drawCard("west", west[card].suit(), card);
                 }
             });
             
         </script>
     </head>
     <body>
-        <h1>HTML 5 Euchre -- so fucking alpha they don't make numbers imaginary enough</h1>
+        <h1>HTML 5 Euchre</h1>
         <div id="container">
             <div id="messages">
                 <!--<div id="freshdeck">
@@ -43,18 +51,24 @@
                 </div>-->
                 <div id="player_north">
                     North:<br/>
+                    <canvas id="north" width="500" height="100"></canvas>
+                   
+
                 </div>
                 <div id="player_east">
                     East:<br/>
+                    <canvas id="east" width="578" height="200"></canvas>
                 </div>
                 <div id="player_south">
                     South:<br/>
+                    <canvas id="south" width="578" height="200"></canvas>
                 </div>
                 <div id="player_west">
                     West:<br/>
+                    <canvas id="west" width="578" height="200"></canvas>
                 </div>
             </div>
         </div>
-    
+             
     </body>
 </html>
