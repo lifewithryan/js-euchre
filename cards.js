@@ -92,3 +92,4 @@ var euchreDeck = new Deck({
     cards : ["Nine", "Ten", "Jack", "Queen", "King", "Ace "]
 });
 
+
